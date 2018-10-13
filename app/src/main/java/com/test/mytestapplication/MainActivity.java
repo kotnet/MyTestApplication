@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         Map<String, String> questions = new HashMap<String, String>(){{
             put("как дела", "Шикарно");
-            put("чем заниммаешься", "Отвечаю на дурацкие вопросы");
+            put("чем занимаешься", "Отвечаю на дурацкие вопросы");
             put("как тебя зовут", "Меня зовут Ассистентий");
             put("в чем смысл жизни", "Ответ находится вне моей компетенции");
         }};
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(question.contains("какой сегодня день")){
             DateFormat fmt = new SimpleDateFormat("dd MMMM yyyy");
-            result.add("Сегодня " + fmt.format(new Date()));
+            result.add("Сегодня " + fmt.format(new Date()) + "г");
         }
 
         return TextUtils.join(", ", result) + ".";
