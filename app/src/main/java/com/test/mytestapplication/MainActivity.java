@@ -58,9 +58,14 @@ public class MainActivity extends AppCompatActivity {
 
         Map<String, String> questions = new HashMap<String, String>(){{
             put("как дела", "Шикарно");
+            put("как твои дела", "Шикарно");
+            put("как делишки", "Шикарно");
             put("чем занимаешься", "Отвечаю на дурацкие вопросы");
+            put("что делаешь", "Отвечаю на дурацкие вопросы");
             put("как тебя зовут", "Меня зовут Ассистентий");
-            put("в чем смысл жизни", "Ответ находится вне моей компетенции");
+            put("ты кто", "Меня зовут Ассистентий");
+            put("кто ты такой", "Меня зовут Ассистентий");
+            put("в чем смысл жизни", "В руках твоих смысла обретение. Учи Java.");
         }};
 
         List<String> result = new ArrayList<>();
@@ -71,16 +76,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        if(question.contains("сколько времени")){
+        if((question.contains("сколько") || question.contains("который")) && (question.contains("времени") || (question.contains("время") || question.contains("час")))){
             DateFormat fmt = new SimpleDateFormat("HH:mm:ss");
             result.add("Сейчас " + fmt.format(new Date()));
         }
 
-        if(question.contains("какой сегодня день")){
+        if((question.contains("какой") || question.contains("что")) && question.contains("сегодня") && question.contains("день")){
             DateFormat fmt = new SimpleDateFormat("dd MMMM yyyy");
             result.add("Сегодня " + fmt.format(new Date()) + "г");
         }
 
-        return TextUtils.join(", ", result) + ".";
+        return TextUtils.join(", ", result) + "."; 
     }
 }
